@@ -35,6 +35,12 @@ urlpatterns = [
     path('user/update/' , UserRetrieveUpdateDestroyAPIView.as_view()) ,
     path('book/' , BookListCreateAPIView.as_view()) ,
     path('book/<int:pk>/' , BookRetrieveUpdateDestroyAPIView.as_view()) ,
+    path('book/my/' , MyBookList.as_view()) ,
+    path('book/<int:pk>/mark_sold/' , BookMarkSoldView.as_view()) ,
+    path('user/savedlist/' , SavedListAPIVIew.as_view()) ,
+    path('user/savedlist/add/<int:pk>/'  , SevedListAddBookAPIView.as_view()) ,
+    path('user/savedlist/remove/<int:pk>/' , SevedListRemoveBookAPIView.as_view()) ,
+
 
 ]
 

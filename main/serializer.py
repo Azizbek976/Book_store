@@ -21,7 +21,7 @@ class UserSerializer(serializers.ModelSerializer):
 class BookSerializer(serializers.ModelSerializer):
     class Meta:
         model = Book
-        fields = ('id' , 'name' , 'details' , 'price' , 'user' , 'image')
+        fields = ('id' , 'name' , 'details' , 'price' , 'cover' , 'created_at' , 'user' , 'sold' , 'image')
 
 
 
@@ -35,6 +35,41 @@ class BookPostSerializer(serializers.ModelSerializer):
                 'read_only' : True
             }
         }
+
+
+
+
+class BookMarkSoldSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Book
+        fields = ('id' , 'sold')
+
+        extra_kwargs = {
+            'sold' :
+                {'read_only' : True}
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

@@ -34,6 +34,24 @@ class Book(models.Model):
 
 
 
+class SavedList(models.Model):
+    user = models.OneToOneField(User , on_delete=models.CASCADE)
+    books = models.ManyToManyField(Book)
+
+
+    def __str__(self):
+        books = self.books.all()
+        bookname = '---'.join(book.name for book in books)
+
+        return f'{self.user.username} --- {bookname}'
+
+
+
+
+
+
+
+
     # def delete(self , *args , **kwargs):
     #     if self.image and os.path.isfile(self.image.path):
     #         os.remove(self.image.path)
